@@ -1,0 +1,82 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Web Pages
+{% endblock %}
+
+{% block content %}
+<main>
+    <section class="intro">
+        <h1>Deployed Web Pages</h1>
+    </section>
+
+    {% for post in ls %}
+    {% if forloop.counter0|divisibleby:2 %}
+    <section class="content normal">
+        <div>
+            <div>
+                {% if post.title is not None %}
+                <h2>{{post.title}}</h2>
+                {% endif %}
+                {% if post.subtitle is not None %}
+                <h4>{{post.subtitle}}</h4>
+                {% endif %}
+                {% if post.description is not None %}
+                <p>
+                {{post.description|safe}}
+                </p>
+                {% endif %}
+                {% if post.show_button %}
+                <a target="_blank" href="{{post.button_url}}" class="cuadrolink" >
+                    <div class="cuadrodentro">
+                        {{post.button_text}}
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+        <div>
+            <div class="img-container">
+                <img src="{{post.image.url}}" alt="paneles pergola">
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <section class="content reverse">
+        <div>
+            <div class="img-container">
+                <img src="{{post.image.url}}" alt="paneles pergola">
+            </div>
+        </div>
+        <div>
+            <div>
+                {% if post.title is not None %}
+                <h2>{{post.title}}</h2>
+                {% endif %}
+                {% if post.subtitle is not None %}
+                <h4>{{post.subtitle}}</h4>
+                {% endif %}
+                {% if post.description is not None %}
+                <p>
+                {{post.description|safe}}
+                </p>
+                {% endif %}
+                {% if post.show_button %}
+                <a target="_blank" href="{{post.button_url}}" class="cuadrolink" >
+                    <div class="cuadrodentro">
+                        {{post.button_text}}
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>	
+    {% endif %}
+    
+    {% endfor %}
+    
+</main>
+
+{% endblock %}
