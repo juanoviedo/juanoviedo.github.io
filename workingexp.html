@@ -1,82 +1,86 @@
-{% extends "main/base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>
+	    Juan Oviedo
+    </title>
 
-{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/fontello.css">
+</head>
+<body>
+	<header>
+		<div class="contenedor">
+			<a href="/">Juan Oviedo</a>
+			<input type="checkbox" id="menu-bar">
+			<label class="icon-menu" for="menu-bar"></label>
+			<nav class="menu">
+				<a href="/" class="sombrear">Home</a>
+				<a href="/workingexp/" class="sombrear">Working Experience</a>
+				<a href="/webpages/" class="sombrear">Web Pages</a>
+				<a href="/otherpro/" class="sombrear">Other Projects</a>
+				<a href="/contact/" class="sombrear">Contact</a>
+			</nav>
+		</div>
+	</header>
 
-{% block title %}
-    Juan Oviedo
-{% endblock %}
-
-{% block content %}
 <main>
 
     <section class="intro">
         <h1>Working Experience</h1>
     </section>
 
-    {% for post in ls %}
-    {% if forloop.counter0|divisibleby:2 %}
     <section class="content normal">
         <div>
             <div>
-                {% if post.title is not None %}
-                <h2>{{post.title}}</h2>
-                {% endif %}
-                {% if post.subtitle is not None %}
-                <h4>{{post.subtitle}}</h4>
-                {% endif %}
-                {% if post.description is not None %}
+                <h2>Juan Oviedo's Website</h2>
+                <h4>Brand New Satatic Juan's Website</h4>
                 <p>
-                {{post.description|safe}}
+                Just because of the new Heroku fee politics, I decided to make my web site static. I had 
+                a django website on Heroku conected to a beautyfull and powerfull PostgreSQL database in witch
+                I only had to post my new proyects as a fb-like social website but all my information
+                in the database was gone because of the Heroku changes.
                 </p>
-                {% endif %}
-                {% if post.show_button %}
-                <a target="_blank" href="{{post.button_url}}" class="cuadrolink" >
+                
+                <a target="_blank" href="" class="cuadrolink" >
                     <div class="cuadrodentro">
-                        {{post.button_text}}
+                        Press here to do nothing XD
                     </div>
                 </a>
-                {% endif %}
             </div>
         </div>
         <div>
             <div class="img-container">
-                <img src="{{post.image.url}}" alt="paneles pergola">
+                <img src="img/code.jpeg" alt="paneles pergola">
             </div>
         </div>
     </section>
-    {% else %}
     <section class="content reverse">
         <div>
             <div class="img-container">
-                <img src="{{post.image.url}}" alt="paneles pergola">
+                <img src="img/code.jpg" alt="paneles pergola">
             </div>
         </div>
         <div>
             <div>
-                {% if post.title is not None %}
-                <h2>{{post.title}}</h2>
-                {% endif %}
-                {% if post.subtitle is not None %}
-                <h4>{{post.subtitle}}</h4>
-                {% endif %}
-                {% if post.description is not None %}
+                
+                <h2>Please Be Patient</h2>
+                
+                <h4>All Page Links Comming Soon!</h4>
                 <p>
-                {{post.description|safe}}
+                    This page is under construction, just be patience to se all the information
+                    about Juan's life and proyects.
                 </p>
-                {% endif %}
-                {% if post.show_button %}
-                <a target="_blank" href="{{post.button_url}}" class="cuadrolink" >
+                
+                <a target="_blank" href="" class="cuadrolink" >
                     <div class="cuadrodentro">
-                        {{post.button_text}}
+                        Click here to do nothing XD
                     </div>
                 </a>
-                {% endif %}
             </div>
         </div>
     </section>	
-    {% endif %}
-    
-    {% endfor %}
+ 
 </main>
-
-{% endblock %}
