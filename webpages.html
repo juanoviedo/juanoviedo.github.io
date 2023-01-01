@@ -1,82 +1,90 @@
-{% extends "main/base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>
+	    Juan Oviedo
+    </title>
 
-{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link rel="stylesheet" href="css/estilos.css">
+	<link rel="stylesheet" href="css/fontello.css">
+</head>
+<body>
+	<header>
+		<div class="contenedor">
+			<a href="/">Juan Oviedo</a>
+			<input type="checkbox" id="menu-bar">
+			<label class="icon-menu" for="menu-bar"></label>
+			<nav class="menu">
+				<a href="/" class="sombrear">Home</a>
+				<a href="https://juanoviedo.github.io/workingexp" class="sombrear">Working Experience</a>
+				<a href="https://juanoviedo.github.io/webpages" class="sombrear">Web Pages</a>
+				<a href="https://juanoviedo.github.io/otherpro" class="sombrear">Other Projects</a>
+				<a href="https://juanoviedo.github.io/contact" class="sombrear">Contact</a>
+			</nav>
+		</div>
+	</header>
 
-{% block title %}
-    Web Pages
-{% endblock %}
-
-{% block content %}
 <main>
     <section class="intro">
         <h1>Deployed Web Pages</h1>
     </section>
 
-    {% for post in ls %}
-    {% if forloop.counter0|divisibleby:2 %}
     <section class="content normal">
         <div>
             <div>
-                {% if post.title is not None %}
-                <h2>{{post.title}}</h2>
-                {% endif %}
-                {% if post.subtitle is not None %}
-                <h4>{{post.subtitle}}</h4>
-                {% endif %}
-                {% if post.description is not None %}
+                <h2>Etech website</h2>
+                <h4>Cali, 2017</h4>
                 <p>
-                {{post.description|safe}}
+                    This one, was the firs website i created. It was diferent than it is right now but
+                    it was responsive and had the same menu. In 2017 I learned HTML and CSS and something
+                    of Javascript.
                 </p>
-                {% endif %}
-                {% if post.show_button %}
-                <a target="_blank" href="{{post.button_url}}" class="cuadrolink" >
+                
+                <a target="_blank" href="https://juanoviedo.github.io/etech.github.io" class="cuadrolink" >
                     <div class="cuadrodentro">
-                        {{post.button_text}}
+                        Visit website
                     </div>
                 </a>
-                {% endif %}
             </div>
         </div>
         <div>
             <div class="img-container">
-                <img src="{{post.image.url}}" alt="paneles pergola">
+                <img src="img/etech.jpg" alt="Solar Decatlon 2015">
             </div>
         </div>
     </section>
-    {% else %}
+
     <section class="content reverse">
         <div>
             <div class="img-container">
-                <img src="{{post.image.url}}" alt="paneles pergola">
+                <img src="img/mysite.PNG" alt="paneles pergola">
             </div>
         </div>
         <div>
             <div>
-                {% if post.title is not None %}
-                <h2>{{post.title}}</h2>
-                {% endif %}
-                {% if post.subtitle is not None %}
-                <h4>{{post.subtitle}}</h4>
-                {% endif %}
-                {% if post.description is not None %}
+                
+                <h2>This page</h2>
+                
+                <h4>Cali, 2021</h4>
                 <p>
-                {{post.description|safe}}
+                    The page you are looking at was first deplyed using django on Heroku. It had a
+                    beautyfull PostgreSQL database atached. Now it is just a static page. Other Pages
+                    has been deployed but I'm working on this one first.
                 </p>
-                {% endif %}
-                {% if post.show_button %}
-                <a target="_blank" href="{{post.button_url}}" class="cuadrolink" >
+                
+                <a target="_blank" href="/" class="cuadrolink" >
                     <div class="cuadrodentro">
-                        {{post.button_text}}
+                        Go to home page
                     </div>
                 </a>
-                {% endif %}
             </div>
         </div>
     </section>	
-    {% endif %}
-    
-    {% endfor %}
+
     
 </main>
 
-{% endblock %}
+</body>
+</html>
